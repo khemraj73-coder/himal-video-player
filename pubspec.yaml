@@ -54,10 +54,3 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
-    - assets/fonts/
-  fonts:
-    - family: HimalSans
-      fonts:
-        - asset: assets/fonts/HimalSans-Regular.ttf
-        - asset: assets/fonts/HimalSans-Bold.ttf
-          weight: 700

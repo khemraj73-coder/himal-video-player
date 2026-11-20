@@ -45,7 +45,7 @@ class AppConstants {
   static const Set<String> videoExtensions = {
     'mp4', 'mkv', 'avi', 'mov', 'wmv', 'flv', 'webm', 'ts', 'm2ts', 'mts',
     'mpg', 'mpeg', 'vob', 'ogv', '3gp', '3g2', 'asf', 'rm', 'rmvb', 'divx',
-    'f4v', 'm4v', 'ogm', 'mxf', 'dv', 'mts', 'm2t',
+    'f4v', 'm4v', 'ogm', 'mxf', 'dv', 'm2t',
   };
 
   static const Set<String> audioExtensions = {

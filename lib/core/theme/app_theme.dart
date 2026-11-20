@@ -20,7 +20,7 @@ class AppTheme {
         elevation: 0,
         centerTitle: false,
       ),
-      cardTheme: CardThemeData(
+      cardTheme: CardTheme(
         color: AppColors.surfaceLightElevated,
         elevation: 1,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -35,7 +35,7 @@ class AppTheme {
       sliderTheme: SliderThemeData(
         activeTrackColor: accent,
         thumbColor: accent,
-        overlayColor: accent\.withOpacity(0.2),
+        overlayColor: accent.withOpacity(0.2),
         inactiveTrackColor: Colors.grey.shade300,
       ),
       iconTheme: const IconThemeData(color: AppColors.textLight),
@@ -58,7 +58,7 @@ class AppTheme {
         elevation: 0,
         centerTitle: false,
       ),
-      cardTheme: CardThemeData(
+      cardTheme: CardTheme(
         color: AppColors.surfaceDarkElevated,
         elevation: 1,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -73,7 +73,7 @@ class AppTheme {
       sliderTheme: SliderThemeData(
         activeTrackColor: accent,
         thumbColor: accent,
-        overlayColor: accent\.withOpacity(0.2),
+        overlayColor: accent.withOpacity(0.2),
         inactiveTrackColor: Colors.white24,
       ),
       iconTheme: const IconThemeData(color: AppColors.textDark),

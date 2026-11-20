@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:provider/provider.dart';
 
-import '../core/constants/app_colors.dart';
-import '../core/constants/app_constants.dart';
+import '../../core/constants/app_colors.dart';
+import '../../core/constants/app_constants.dart';
 import 'player_controller.dart';
 
 class PlayerScreen extends StatefulWidget {
@@ -380,11 +380,11 @@ class _ControlsOverlay extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _InfoRow('Title', item.displayName),
-            _InfoRow('Path', item.path),
-            _InfoRow('Type', item.isAudio ? 'Audio' : 'Video'),
-            _InfoRow('Format', item.extension.toUpperCase()),
-            _InfoRow('Duration', _fmt(pc.duration)),
+            _infoRow('Title', item.displayName),
+            _infoRow('Path', item.path),
+            _infoRow('Type', item.isAudio ? 'Audio' : 'Video'),
+            _infoRow('Format', item.extension.toUpperCase()),
+            _infoRow('Duration', _fmt(pc.duration)),
           ],
         ),
         actions: [TextButton(onPressed: () => Navigator.pop(context), child: const Text('Close'))],
@@ -392,7 +392,7 @@ class _ControlsOverlay extends StatelessWidget {
     );
   }
 
-  Widget _InfoRow(String k, String v) {
+  Widget _infoRow(String k, String v) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(

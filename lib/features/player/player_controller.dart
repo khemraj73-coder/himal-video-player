@@ -420,7 +420,7 @@ class PlayerController extends ChangeNotifier {
       await shots.create(recursive: true);
       final file = File(p.join(shots.path, 'shot_${DateTime.now().millisecondsSinceEpoch}.png'));
       // media_kit screenshot support varies; best-effort via command
-      await _player.command(['screenshot-to-file', file.path, 'video']);
+      // await _player.command(['screenshot-to-file', file.path, 'video']);
     } catch (_) {}
   }
 

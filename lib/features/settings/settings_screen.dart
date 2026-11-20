@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_constants.dart';
-import '../player/player_controller.dart';
 import 'settings_controller.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -38,8 +37,8 @@ class SettingsScreen extends StatelessWidget {
               children: [
                 _ColorDot(color: AppConstants.defaultAccent, selected: sc.accentColor == AppConstants.defaultAccent, onTap: () => sc.setAccentColor(AppConstants.defaultAccent)),
                 _ColorDot(color: AppColors.secondary, selected: sc.accentColor == AppColors.secondary, onTap: () => sc.setAccentColor(AppColors.secondary)),
-                _ColorDot(color: AppColors.himalayanGreen, selected: sc.accentColor == AppColors.himalayanGreen, onTap: () => sc.setAccentColor(AppColors.himalayanGreen)),
-                _ColorDot(color: AppColors.himalayanGold, selected: sc.accentColor == AppColors.himalayanGold, onTap: () => sc.setAccentColor(AppColors.himalayanGold)),
+                _ColorDot(color: AppConstants.himalayanGreen, selected: sc.accentColor == AppConstants.himalayanGreen, onTap: () => sc.setAccentColor(AppConstants.himalayanGreen)),
+                _ColorDot(color: AppConstants.himalayanGold, selected: sc.accentColor == AppConstants.himalayanGold, onTap: () => sc.setAccentColor(AppConstants.himalayanGold)),
               ],
             ),
           ),
@@ -246,7 +245,7 @@ class _ColorDot extends StatelessWidget {
           color: color,
           shape: BoxShape.circle,
           border: selected ? Border.all(color: Colors.white, width: 3) : null,
-          boxShadow: selected ? [BoxShadow(color: color\.withOpacity(0.6), blurRadius: 6)] : null,
+          boxShadow: selected ? [BoxShadow(color: color.withOpacity(0.6), blurRadius: 6)] : null,
         ),
       ),
     );
