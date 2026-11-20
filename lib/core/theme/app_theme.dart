@@ -35,7 +35,7 @@ class AppTheme {
       sliderTheme: SliderThemeData(
         activeTrackColor: accent,
         thumbColor: accent,
-        overlayColor: accent.withValues(alpha: 0.2),
+        overlayColor: accent\.withOpacity(0.2),
         inactiveTrackColor: Colors.grey.shade300,
       ),
       iconTheme: const IconThemeData(color: AppColors.textLight),
@@ -73,7 +73,7 @@ class AppTheme {
       sliderTheme: SliderThemeData(
         activeTrackColor: accent,
         thumbColor: accent,
-        overlayColor: accent.withValues(alpha: 0.2),
+        overlayColor: accent\.withOpacity(0.2),
         inactiveTrackColor: Colors.white24,
       ),
       iconTheme: const IconThemeData(color: AppColors.textDark),

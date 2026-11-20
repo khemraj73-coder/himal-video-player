@@ -191,6 +191,16 @@ class SettingsScreen extends StatelessWidget {
             title: Text('HIMAL Video Player'),
             subtitle: Text('Version 1.0.0 • Free & Open Source (MIT)'),
           ),
+          const Padding(
+            padding: EdgeInsets.all(16),
+            child: Center(
+              child: Text(
+                'Made with ❤️ by Nepali for everyone\nनेपालीले सबैका लागि बनाएको',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontStyle: FontStyle.italic),
+              ),
+            ),
+          ),
           ListTile(
             leading: const Icon(Icons.code),
             title: const Text('Source code'),
@@ -236,7 +246,7 @@ class _ColorDot extends StatelessWidget {
           color: color,
           shape: BoxShape.circle,
           border: selected ? Border.all(color: Colors.white, width: 3) : null,
-          boxShadow: selected ? [BoxShadow(color: color.withValues(alpha: 0.6), blurRadius: 6)] : null,
+          boxShadow: selected ? [BoxShadow(color: color\.withOpacity(0.6), blurRadius: 6)] : null,
         ),
       ),
     );

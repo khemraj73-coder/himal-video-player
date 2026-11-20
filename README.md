@@ -3,6 +3,8 @@
 **HIMAL** (Himalayan Integrated Media & Audio Layer) is the ultimate **free, open-source, cross-platform video player** built for everyone. It plays **every format, every codec, and every HDR standard** — HDR, HDR+, HDR10, HDR10+, Dolby Vision — with full surround-sound audio support, on **Windows, Linux, macOS, iOS and Android**.
 
 > One player. Every format. Every device. Free forever.
+>
+> **Made with ❤️ by Nepali for everyone — नेपालीले सबैका लागि बनाएको**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20iOS%20%7C%20Android-blue)]()

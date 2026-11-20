@@ -1,0 +1,40 @@
+name: Auto Fix
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # daily at 03:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.x'
+          channel: 'stable'
+          cache: true
+      - name: Generate platform scaffolding
+        run: flutter create --platforms=android,ios,linux,macos,windows .
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Apply dart fixes
+        run: dart fix --apply || true
+      - name: Format code
+        run: dart format . || true
+      - name: Commit and push if changed
+        run: |
+          git config user.name "himal-bot"
+          git config user.email "himal-bot@users.noreply.github.com"
+          if [[ -n $(git status --porcelain) ]]; then
+            git add -A
+            git commit -m "chore: auto-fix (dart fix + format) [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi
