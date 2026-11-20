@@ -25,7 +25,7 @@ jobs:
         run: |
           cd build/windows/x64/runner/Release
           7z a ../../../himal-windows.zip *
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: himal-windows
           path: build/himal-windows.zip
@@ -46,7 +46,7 @@ jobs:
       - run: flutter build linux --release
       - name: Package
         run: cd build/linux/x64/release && tar -czf bundle.tar.gz bundle/
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: himal-linux
           path: build/linux/x64/release/bundle.tar.gz
@@ -65,7 +65,7 @@ jobs:
       - run: flutter build macos --release
       - name: Package
         run: cd build/macos/Build/Products/Release && zip -r himal-macos.zip *.app
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: himal-macos
           path: build/macos/Build/Products/Release/himal-macos.zip
@@ -82,7 +82,7 @@ jobs:
       - run: flutter create --platforms=android .
       - run: flutter pub get
       - run: flutter build apk --release
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: himal-android
           path: build/app/outputs/flutter-apk/*.apk
@@ -99,7 +99,7 @@ jobs:
       - run: flutter create --platforms=ios .
       - run: flutter pub get
       - run: flutter build ios --release --no-codesign
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: himal-ios
           path: build/ios/iphoneos/*.app
@@ -116,7 +116,7 @@ jobs:
       - run: flutter create --platforms=web .
       - run: flutter pub get
       - run: flutter build web --release
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: himal-web
           path: build/web/
