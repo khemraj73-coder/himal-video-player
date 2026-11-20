@@ -111,6 +111,17 @@ Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before
 - [ ] Plugin system for custom decoders
 - [ ] Smart TV (Android TV / tvOS) builds
 
+## Trademarks & legal
+
+- "Dolby", "Dolby Vision", "Dolby Atmos", "Dolby Digital" are trademarks of Dolby Laboratories.
+- "Chromecast" is a trademark of Google LLC.
+- "Windows", "macOS", "iOS", "Android", "Linux" are trademarks of their respective owners.
+- HIMAL is an independent project and is not affiliated with or endorsed by any of the above.
+- HIMAL bundles FFmpeg/libmpv via `media_kit`. FFmpeg is licensed under LGPL/GPL depending on build
+  configuration; HIMAL uses LGPL-compatible builds where possible. See [FFmpeg licensing](https://ffmpeg.org/legal.html)
+  and the `media_kit` documentation for details. If you redistribute HIMAL, ensure your FFmpeg build complies.
+- HIMAL is a media player only. It does not circumvent DRM and does not include any copyrighted content.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
