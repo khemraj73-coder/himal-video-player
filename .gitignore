@@ -47,9 +47,16 @@ ios/Pods/
 ios/.symlinks/
 ios/Flutter/Flutter.framework
 ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
 macos/Pods/
 macos/.symlinks/
 macos/Flutter/GeneratedPluginRegistrant.swift
+macos/Flutter/ephemeral/
+# Linux / Windows generated
+linux/flutter/generated_plugins.cmake
+windows/flutter/generated_plugins.cmake
+windows/flutter/generated_plugin_registrant.*
 
 # Windows
 windows/flutter/ephemeral/
