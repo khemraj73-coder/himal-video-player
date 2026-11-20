@@ -8,10 +8,4 @@ updates:
     labels:
       - "dependencies"
       - "auto-update"
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    labels:
-      - "ci"
-      - "auto-update"
+  # github-actions dependabot disabled: proposed versions often invalid/nonexistent.

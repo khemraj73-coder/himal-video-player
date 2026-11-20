@@ -6,7 +6,7 @@
       "version": "stable"
     }
   },
-  "postCreateCommand": "flutter pub get && flutter create --platforms=android,ios,linux,macos,windows,web .",
+  "postCreateCommand": "flutter pub get && flutter create --project-name himal_video_player --platforms=android,ios,linux,macos,windows,web .",
   "customizations": {
     "vscode": {
       "extensions": [

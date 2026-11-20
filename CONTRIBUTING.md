@@ -18,7 +18,7 @@ contributions of all kinds.
 git clone https://github.com/<you>/himal-video-player.git
 cd himal-video-player
 flutter pub get
-flutter create --platforms=android,ios,linux,macos,windows .
+flutter create --project-name himal_video_player --platforms=android,ios,linux,macos,windows .
 flutter run -d <device>
 ```
 
