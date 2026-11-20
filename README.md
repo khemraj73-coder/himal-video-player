@@ -61,7 +61,7 @@ SRT, ASS/SSA, VTT, SUB, IDX, PGS (Blu-ray), DVD (VOBSUB), TTML, and embedded tex
 
 ### Run
 ```bash
-git clone https://github.com/<your-username>/himal-video-player.git
+git clone https://github.com/khemraj73-coder/himal-video-player.git
 cd himal-video-player
 flutter pub get
 flutter run -d windows   # or linux, macos, ios, android
