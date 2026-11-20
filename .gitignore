@@ -86,3 +86,4 @@ coverage/
 *.deb
 *.rpm
 *.AppImage
+ios/Runner/GeneratedPluginRegistrant.*
