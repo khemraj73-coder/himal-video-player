@@ -51,7 +51,8 @@ class _PlayerScreenState extends State<PlayerScreen> {
             ),
             if (pc.status == PlayerStatus.loading ||
                 pc.status == PlayerStatus.buffering)
-              const Center(child: CircularProgressIndicator(color: Colors.white)),
+              const Center(
+                  child: CircularProgressIndicator(color: Colors.white)),
             if (pc.status == PlayerStatus.error)
               Center(
                 child: Padding(
@@ -59,7 +60,8 @@ class _PlayerScreenState extends State<PlayerScreen> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(Icons.error_outline, color: Colors.red, size: 48),
+                      const Icon(Icons.error_outline,
+                          color: Colors.red, size: 48),
                       const SizedBox(height: 12),
                       Text(
                         pc.errorMessage ?? 'Playback error',
@@ -110,7 +112,8 @@ class _ControlsOverlay extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  icon: const Icon(Icons.picture_in_picture_alt, color: Colors.white),
+                  icon: const Icon(Icons.picture_in_picture_alt,
+                      color: Colors.white),
                   onPressed: () {},
                   tooltip: 'Picture in Picture',
                 ),
@@ -158,25 +161,36 @@ class _ControlsOverlay extends StatelessWidget {
                   // Seek bar
                   Row(
                     children: [
-                      Text(_fmt(pc.position), style: const TextStyle(color: Colors.white, fontSize: 12)),
+                      Text(_fmt(pc.position),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 12)),
                       Expanded(
                         child: Slider(
                           min: 0,
-                          max: pc.duration.inMilliseconds.toDouble().clamp(1, double.infinity),
-                          value: pc.position.inMilliseconds.toDouble().clamp(0, pc.duration.inMilliseconds.toDouble()),
-                          onChanged: (v) => pc.seek(Duration(milliseconds: v.toInt())),
+                          max: pc.duration.inMilliseconds
+                              .toDouble()
+                              .clamp(1, double.infinity),
+                          value: pc.position.inMilliseconds
+                              .toDouble()
+                              .clamp(0, pc.duration.inMilliseconds.toDouble()),
+                          onChanged: (v) =>
+                              pc.seek(Duration(milliseconds: v.toInt())),
                           activeColor: AppColors.seekBarActive,
                           inactiveColor: AppColors.seekBarInactive,
                         ),
                       ),
-                      Text(_fmt(pc.duration), style: const TextStyle(color: Colors.white, fontSize: 12)),
+                      Text(_fmt(pc.duration),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 12)),
                     ],
                   ),
                   Row(
                     children: [
                       // Volume
                       IconButton(
-                        icon: Icon(pc.muted ? Icons.volume_off : Icons.volume_up, color: Colors.white),
+                        icon: Icon(
+                            pc.muted ? Icons.volume_off : Icons.volume_up,
+                            color: Colors.white),
                         onPressed: pc.toggleMute,
                       ),
                       SizedBox(
@@ -194,16 +208,19 @@ class _ControlsOverlay extends StatelessWidget {
                       // Speed
                       TextButton(
                         onPressed: pc.cycleSpeed,
-                        child: Text('${pc.speed}x', style: const TextStyle(color: Colors.white)),
+                        child: Text('${pc.speed}x',
+                            style: const TextStyle(color: Colors.white)),
                       ),
                       const Spacer(),
                       // Aspect ratio
                       PopupMenuButton<double?>(
-                        icon: const Icon(Icons.aspect_ratio, color: Colors.white),
+                        icon:
+                            const Icon(Icons.aspect_ratio, color: Colors.white),
                         tooltip: 'Aspect ratio',
                         onSelected: pc.setAspectRatio,
                         itemBuilder: (_) => AppConstants.aspectRatios.entries
-                            .map((e) => PopupMenuItem(value: e.value, child: Text(e.key)))
+                            .map((e) => PopupMenuItem(
+                                value: e.value, child: Text(e.key)))
                             .toList(),
                       ),
                       // Subtitles
@@ -214,7 +231,8 @@ class _ControlsOverlay extends StatelessWidget {
                       ),
                       // Loop
                       IconButton(
-                        icon: Icon(pc.looping ? Icons.repeat_one : Icons.repeat, color: Colors.white),
+                        icon: Icon(pc.looping ? Icons.repeat_one : Icons.repeat,
+                            color: Colors.white),
                         onPressed: pc.toggleLoop,
                       ),
                       // Fullscreen (desktop)
@@ -273,9 +291,11 @@ class _ControlsOverlay extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.favorite_border),
-              title: Text(pc.current != null && pc.isFavorite(pc.current!.path)
-                  ? 'Remove from favorites'
-                  : 'Add to favorites'),
+              title: Text(
+                pc.current != null && pc.isFavorite(pc.current!.path)
+                    ? 'Remove from favorites'
+                    : 'Add to favorites',
+              ),
               onTap: () {
                 if (pc.current != null) pc.toggleFavorite(pc.current!);
                 Navigator.pop(context);
@@ -304,19 +324,33 @@ class _ControlsOverlay extends StatelessWidget {
           children: [
             ListTile(
               title: const Text('Off'),
-              trailing: pc.activeSubtitle == -1 ? const Icon(Icons.check) : null,
-              onTap: () { pc.setSubtitleTrack(-1); Navigator.pop(context); },
+              trailing:
+                  pc.activeSubtitle == -1 ? const Icon(Icons.check) : null,
+              onTap: () {
+                pc.setSubtitleTrack(-1);
+                Navigator.pop(context);
+              },
             ),
             ListTile(
               title: const Text('Auto'),
               trailing: pc.activeSubtitle == 0 ? const Icon(Icons.check) : null,
-              onTap: () { pc.setSubtitleTrack(0); Navigator.pop(context); },
+              onTap: () {
+                pc.setSubtitleTrack(0);
+                Navigator.pop(context);
+              },
             ),
-            ...pc.subtitleTracks.asMap().entries.map((e) => ListTile(
-                  title: Text('Track ${e.key + 1}'),
-                  trailing: pc.activeSubtitle == e.key + 1 ? const Icon(Icons.check) : null,
-                  onTap: () { pc.setSubtitleTrack(e.key + 1); Navigator.pop(context); },
-                )),
+            ...pc.subtitleTracks.asMap().entries.map(
+                  (e) => ListTile(
+                    title: Text('Track ${e.key + 1}'),
+                    trailing: pc.activeSubtitle == e.key + 1
+                        ? const Icon(Icons.check)
+                        : null,
+                    onTap: () {
+                      pc.setSubtitleTrack(e.key + 1);
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
             ListTile(
               leading: const Icon(Icons.file_open),
               title: const Text('Load subtitle file...'),
@@ -338,11 +372,18 @@ class _ControlsOverlay extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            ...pc.audioTracks.asMap().entries.map((e) => ListTile(
-                  title: Text('Track ${e.key + 1}'),
-                  trailing: pc.activeAudio == e.key ? const Icon(Icons.check) : null,
-                  onTap: () { pc.setAudioTrack(e.key); Navigator.pop(context); },
-                )),
+            ...pc.audioTracks.asMap().entries.map(
+                  (e) => ListTile(
+                    title: Text('Track ${e.key + 1}'),
+                    trailing: pc.activeAudio == e.key
+                        ? const Icon(Icons.check)
+                        : null,
+                    onTap: () {
+                      pc.setAudioTrack(e.key);
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
           ],
         ),
       ),
@@ -355,14 +396,19 @@ class _ControlsOverlay extends StatelessWidget {
       builder: (_) => SafeArea(
         child: Wrap(
           children: AppConstants.playbackSpeeds
-              .map((s) => Padding(
-                    padding: const EdgeInsets.all(4),
-                    child: ChoiceChip(
-                      label: Text('${s}x'),
-                      selected: pc.speed == s,
-                      onSelected: (_) { pc.setSpeed(s); Navigator.pop(context); },
-                    ),
-                  ))
+              .map(
+                (s) => Padding(
+                  padding: const EdgeInsets.all(4),
+                  child: ChoiceChip(
+                    label: Text('${s}x'),
+                    selected: pc.speed == s,
+                    onSelected: (_) {
+                      pc.setSpeed(s);
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+              )
               .toList(),
         ),
       ),
@@ -387,7 +433,11 @@ class _ControlsOverlay extends StatelessWidget {
             _infoRow('Duration', _fmt(pc.duration)),
           ],
         ),
-        actions: [TextButton(onPressed: () => Navigator.pop(context), child: const Text('Close'))],
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Close'))
+        ],
       ),
     );
   }
@@ -398,7 +448,10 @@ class _ControlsOverlay extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(width: 90, child: Text(k, style: const TextStyle(fontWeight: FontWeight.bold))),
+          SizedBox(
+              width: 90,
+              child:
+                  Text(k, style: const TextStyle(fontWeight: FontWeight.bold))),
           Expanded(child: Text(v)),
         ],
       ),

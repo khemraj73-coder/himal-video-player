@@ -15,7 +15,8 @@ class UpdateService {
   Future<UpdateInfo?> checkForUpdate() async {
     try {
       final uri = Uri.parse(
-          'https://api.github.com/repos/$_owner/$_repo/releases/latest');
+        'https://api.github.com/repos/$_owner/$_repo/releases/latest',
+      );
       final res = await http.get(uri, headers: {'Accept': 'application/json'});
       if (res.statusCode != 200) return null;
       final data = jsonDecode(res.body) as Map<String, dynamic>;
@@ -57,5 +58,6 @@ class UpdateInfo {
   final String version;
   final String url;
   final String notes;
-  const UpdateInfo({required this.version, required this.url, required this.notes});
+  const UpdateInfo(
+      {required this.version, required this.url, required this.notes});
 }

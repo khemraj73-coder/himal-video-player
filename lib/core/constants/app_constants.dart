@@ -21,7 +21,16 @@ class AppConstants {
 
   // Supported playback speeds
   static const List<double> playbackSpeeds = [
-    0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 3.0, 4.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+    2.0,
+    3.0,
+    4.0,
   ];
 
   // Aspect ratios
@@ -43,26 +52,77 @@ class AppConstants {
 
   // Supported container extensions
   static const Set<String> videoExtensions = {
-    'mp4', 'mkv', 'avi', 'mov', 'wmv', 'flv', 'webm', 'ts', 'm2ts', 'mts',
-    'mpg', 'mpeg', 'vob', 'ogv', '3gp', '3g2', 'asf', 'rm', 'rmvb', 'divx',
-    'f4v', 'm4v', 'ogm', 'mxf', 'dv', 'm2t',
+    'mp4',
+    'mkv',
+    'avi',
+    'mov',
+    'wmv',
+    'flv',
+    'webm',
+    'ts',
+    'm2ts',
+    'mts',
+    'mpg',
+    'mpeg',
+    'vob',
+    'ogv',
+    '3gp',
+    '3g2',
+    'asf',
+    'rm',
+    'rmvb',
+    'divx',
+    'f4v',
+    'm4v',
+    'ogm',
+    'mxf',
+    'dv',
+    'm2t',
   };
 
   static const Set<String> audioExtensions = {
-    'mp3', 'flac', 'wav', 'ogg', 'opus', 'aac', 'm4a', 'wma', 'ape', 'alac',
-    'aiff', 'caf', 'dts', 'ac3', 'eac3', 'mka', 'tta', 'wv',
+    'mp3',
+    'flac',
+    'wav',
+    'ogg',
+    'opus',
+    'aac',
+    'm4a',
+    'wma',
+    'ape',
+    'alac',
+    'aiff',
+    'caf',
+    'dts',
+    'ac3',
+    'eac3',
+    'mka',
+    'tta',
+    'wv',
   };
 
   static const Set<String> subtitleExtensions = {
-    'srt', 'ass', 'ssa', 'vtt', 'sub', 'idx', 'pgs', 'ttml', 'dfxp',
+    'srt',
+    'ass',
+    'ssa',
+    'vtt',
+    'sub',
+    'idx',
+    'pgs',
+    'ttml',
+    'dfxp',
   };
 
   static const Set<String> playlistExtensions = {
-    'm3u', 'm3u8', 'pls', 'xspf',
+    'm3u',
+    'm3u8',
+    'pls',
+    'xspf',
   };
 
   // All openable media
-  static Set<String> get mediaExtensions => {...videoExtensions, ...audioExtensions};
+  static Set<String> get mediaExtensions =>
+      {...videoExtensions, ...audioExtensions};
 
   // Theme
   static const Color defaultAccent = Color(0xFFE53935); // Himalayan red

@@ -175,7 +175,8 @@ class PlayerController extends ChangeNotifier {
     });
   }
 
-  Future<void> open(MediaItem item, {List<MediaItem>? playlist, int index = 0}) async {
+  Future<void> open(MediaItem item,
+      {List<MediaItem>? playlist, int index = 0}) async {
     _status = PlayerStatus.loading;
     _errorMessage = null;
     notifyListeners();
@@ -217,9 +218,8 @@ class PlayerController extends ChangeNotifier {
 
   Future<void> openFiles(List<String> paths) async {
     if (paths.isEmpty) return;
-    final items = paths
-        .map((p) => MediaItem(path: p, title: _basename(p)))
-        .toList();
+    final items =
+        paths.map((p) => MediaItem(path: p, title: _basename(p))).toList();
     await open(items.first, playlist: items, index: 0);
   }
 
@@ -250,8 +250,10 @@ class PlayerController extends ChangeNotifier {
 
   Future<void> seekForward() async => seekRelative(AppConstants.seekStep);
   Future<void> seekBackward() async => seekRelative(-AppConstants.seekStep);
-  Future<void> seekForwardLong() async => seekRelative(AppConstants.longSeekStep);
-  Future<void> seekBackwardLong() async => seekRelative(-AppConstants.longSeekStep);
+  Future<void> seekForwardLong() async =>
+      seekRelative(AppConstants.longSeekStep);
+  Future<void> seekBackwardLong() async =>
+      seekRelative(-AppConstants.longSeekStep);
 
   Future<void> setVolume(double v) async {
     v = v.clamp(0.0, 1.0);
@@ -275,7 +277,7 @@ class PlayerController extends ChangeNotifier {
   }
 
   Future<void> cycleSpeed() async {
-    final speeds = AppConstants.playbackSpeeds;
+    const speeds = AppConstants.playbackSpeeds;
     final idx = speeds.indexOf(_speed);
     final next = (idx + 1) % speeds.length;
     await setSpeed(speeds[next]);
@@ -283,7 +285,8 @@ class PlayerController extends ChangeNotifier {
 
   Future<void> toggleLoop() async {
     _looping = !_looping;
-    await _player.setPlaylistMode(_looping ? PlaylistMode.loop : PlaylistMode.none);
+    await _player
+        .setPlaylistMode(_looping ? PlaylistMode.loop : PlaylistMode.none);
     notifyListeners();
   }
 
@@ -323,12 +326,18 @@ class PlayerController extends ChangeNotifier {
     if (_playlist.isEmpty) return;
     int nextIndex;
     if (_shuffle) {
-      nextIndex = (_playlistIndex + 1 + (DateTime.now().millisecond % _playlist.length)) % _playlist.length;
+      nextIndex = (_playlistIndex +
+              1 +
+              (DateTime.now().millisecond % _playlist.length)) %
+          _playlist.length;
     } else {
       nextIndex = _playlistIndex + 1;
       if (nextIndex >= _playlist.length) {
-        if (_looping) nextIndex = 0;
-        else return;
+        if (_looping) {
+          nextIndex = 0;
+        } else {
+          return;
+        }
       }
     }
     await open(_playlist[nextIndex], playlist: _playlist, index: nextIndex);
@@ -338,8 +347,11 @@ class PlayerController extends ChangeNotifier {
     if (_playlist.isEmpty) return;
     int prevIndex = _playlistIndex - 1;
     if (prevIndex < 0) {
-      if (_looping) prevIndex = _playlist.length - 1;
-      else return;
+      if (_looping) {
+        prevIndex = _playlist.length - 1;
+      } else {
+        return;
+      }
     }
     await open(_playlist[prevIndex], playlist: _playlist, index: prevIndex);
   }
@@ -418,7 +430,6 @@ class PlayerController extends ChangeNotifier {
       final dir = await getApplicationDocumentsDirectory();
       final shots = Directory(p.join(dir.path, 'HIMAL', 'Screenshots'));
       await shots.create(recursive: true);
-      final file = File(p.join(shots.path, 'shot_${DateTime.now().millisecondsSinceEpoch}.png'));
       // media_kit screenshot support varies; best-effort via command
       // await _player.command(['screenshot-to-file', file.path, 'video']);
     } catch (_) {}

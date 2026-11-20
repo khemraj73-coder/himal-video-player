@@ -32,7 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: AppColors.primary,
                 shape: BoxShape.circle,
               ),
-              child: const Icon(Icons.play_arrow, color: Colors.white, size: 20),
+              child:
+                  const Icon(Icons.play_arrow, color: Colors.white, size: 20),
             ),
             const SizedBox(width: 10),
             const Text('HIMAL'),
@@ -66,7 +67,8 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedIndex: _tab,
         onDestinationSelected: (i) => setState(() => _tab = i),
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.video_library), label: 'Library'),
+          NavigationDestination(
+              icon: Icon(Icons.video_library), label: 'Library'),
           NavigationDestination(icon: Icon(Icons.history), label: 'Recent'),
           NavigationDestination(icon: Icon(Icons.favorite), label: 'Favorites'),
         ],
@@ -107,7 +109,8 @@ class _LibraryTab extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.video_library_outlined, size: 80, color: Colors.grey.shade400),
+          Icon(Icons.video_library_outlined,
+              size: 80, color: Colors.grey.shade400),
           const SizedBox(height: 16),
           Text(
             'Your library is empty',
@@ -116,10 +119,13 @@ class _LibraryTab extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             'Tap "Open" to play a video or audio file.',
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey),
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium
+                ?.copyWith(color: Colors.grey),
           ),
           const SizedBox(height: 24),
-          Wrap(
+          const Wrap(
             spacing: 8,
             children: [
               _FormatChip('MP4'),
@@ -166,7 +172,9 @@ class _RecentTab extends StatelessWidget {
           subtitle: Text(item.extension.toUpperCase()),
           trailing: IconButton(
             icon: Icon(
-              controller.isFavorite(item.path) ? Icons.favorite : Icons.favorite_border,
+              controller.isFavorite(item.path)
+                  ? Icons.favorite
+                  : Icons.favorite_border,
               color: controller.isFavorite(item.path) ? Colors.red : null,
             ),
             onPressed: () => controller.toggleFavorite(item),
@@ -216,4 +224,3 @@ class _FavoritesTab extends StatelessWidget {
     );
   }
 }
-

@@ -14,8 +14,7 @@ Future<void> main() async {
   MediaKit.ensureInitialized();
 
   // Desktop window setup (only on desktop platforms).
-  if (!kIsWeb &&
-      (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
     await windowManager.ensureInitialized();
     const windowOptions = WindowOptions(
       size: Size(1280, 720),

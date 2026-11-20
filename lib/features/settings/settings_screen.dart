@@ -15,7 +15,7 @@ class SettingsScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Settings')),
       body: ListView(
         children: [
-          _Section(title: 'Appearance'),
+          const _Section(title: 'Appearance'),
           ListTile(
             leading: const Icon(Icons.brightness_6),
             title: const Text('Theme'),
@@ -23,7 +23,8 @@ class SettingsScreen extends StatelessWidget {
               value: sc.themeMode,
               onChanged: (m) => m != null ? sc.setThemeMode(m) : null,
               items: const [
-                DropdownMenuItem(value: ThemeMode.system, child: Text('System')),
+                DropdownMenuItem(
+                    value: ThemeMode.system, child: Text('System')),
                 DropdownMenuItem(value: ThemeMode.light, child: Text('Light')),
                 DropdownMenuItem(value: ThemeMode.dark, child: Text('Dark')),
               ],
@@ -35,10 +36,23 @@ class SettingsScreen extends StatelessWidget {
             trailing: Wrap(
               spacing: 6,
               children: [
-                _ColorDot(color: AppConstants.defaultAccent, selected: sc.accentColor == AppConstants.defaultAccent, onTap: () => sc.setAccentColor(AppConstants.defaultAccent)),
-                _ColorDot(color: AppColors.secondary, selected: sc.accentColor == AppColors.secondary, onTap: () => sc.setAccentColor(AppColors.secondary)),
-                _ColorDot(color: AppConstants.himalayanGreen, selected: sc.accentColor == AppConstants.himalayanGreen, onTap: () => sc.setAccentColor(AppConstants.himalayanGreen)),
-                _ColorDot(color: AppConstants.himalayanGold, selected: sc.accentColor == AppConstants.himalayanGold, onTap: () => sc.setAccentColor(AppConstants.himalayanGold)),
+                _ColorDot(
+                    color: AppConstants.defaultAccent,
+                    selected: sc.accentColor == AppConstants.defaultAccent,
+                    onTap: () => sc.setAccentColor(AppConstants.defaultAccent)),
+                _ColorDot(
+                    color: AppColors.secondary,
+                    selected: sc.accentColor == AppColors.secondary,
+                    onTap: () => sc.setAccentColor(AppColors.secondary)),
+                _ColorDot(
+                    color: AppConstants.himalayanGreen,
+                    selected: sc.accentColor == AppConstants.himalayanGreen,
+                    onTap: () =>
+                        sc.setAccentColor(AppConstants.himalayanGreen)),
+                _ColorDot(
+                    color: AppConstants.himalayanGold,
+                    selected: sc.accentColor == AppConstants.himalayanGold,
+                    onTap: () => sc.setAccentColor(AppConstants.himalayanGold)),
               ],
             ),
           ),
@@ -60,8 +74,7 @@ class SettingsScreen extends StatelessWidget {
               ],
             ),
           ),
-
-          _Section(title: 'Playback'),
+          const _Section(title: 'Playback'),
           SwitchListTile(
             title: const Text('Hardware decoding'),
             subtitle: const Text('Use GPU acceleration when available'),
@@ -99,8 +112,7 @@ class SettingsScreen extends StatelessWidget {
                   .toList(),
             ),
           ),
-
-          _Section(title: 'Subtitles'),
+          const _Section(title: 'Subtitles'),
           SwitchListTile(
             title: const Text('Enable subtitles'),
             value: sc.subtitlesEnabled,
@@ -131,8 +143,7 @@ class SettingsScreen extends StatelessWidget {
               ],
             ),
           ),
-
-          _Section(title: 'Audio'),
+          const _Section(title: 'Audio'),
           SwitchListTile(
             title: const Text('Equalizer'),
             value: sc.equalizerEnabled,
@@ -183,8 +194,7 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
           ),
-
-          _Section(title: 'About'),
+          const _Section(title: 'About'),
           const ListTile(
             leading: Icon(Icons.info_outline),
             title: Text('HIMAL Video Player'),
@@ -233,7 +243,8 @@ class _ColorDot extends StatelessWidget {
   final Color color;
   final bool selected;
   final VoidCallback onTap;
-  const _ColorDot({required this.color, required this.selected, required this.onTap});
+  const _ColorDot(
+      {required this.color, required this.selected, required this.onTap});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -245,7 +256,9 @@ class _ColorDot extends StatelessWidget {
           color: color,
           shape: BoxShape.circle,
           border: selected ? Border.all(color: Colors.white, width: 3) : null,
-          boxShadow: selected ? [BoxShadow(color: color.withOpacity(0.6), blurRadius: 6)] : null,
+          boxShadow: selected
+              ? [BoxShadow(color: color.withOpacity(0.6), blurRadius: 6)]
+              : null,
         ),
       ),
     );

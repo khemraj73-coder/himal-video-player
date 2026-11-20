@@ -72,8 +72,9 @@ class SettingsController extends ChangeNotifier {
     _subtitleSize = prefs.getDouble('subtitleSize') ?? 16;
     _subtitleColor = prefs.getString('subtitleColor') ?? 'white';
     _equalizerEnabled = prefs.getBool('equalizerEnabled') ?? false;
-    _equalizerBands = prefs.getStringList('equalizerBands')?.map(double.parse).toList() ??
-        List.filled(10, 0.0);
+    _equalizerBands =
+        prefs.getStringList('equalizerBands')?.map(double.parse).toList() ??
+            List.filled(10, 0.0);
     _keepScreenOn = prefs.getBool('keepScreenOn') ?? true;
     _backgroundPlay = prefs.getBool('backgroundPlay') ?? false;
     _volumeBoost = prefs.getDouble('volumeBoost') ?? 100;
@@ -94,7 +95,8 @@ class SettingsController extends ChangeNotifier {
     await prefs.setDouble('subtitleSize', _subtitleSize);
     await prefs.setString('subtitleColor', _subtitleColor);
     await prefs.setBool('equalizerEnabled', _equalizerEnabled);
-    await prefs.setStringList('equalizerBands', _equalizerBands.map((e) => e.toString()).toList());
+    await prefs.setStringList(
+        'equalizerBands', _equalizerBands.map((e) => e.toString()).toList());
     await prefs.setBool('keepScreenOn', _keepScreenOn);
     await prefs.setBool('backgroundPlay', _backgroundPlay);
     await prefs.setDouble('volumeBoost', _volumeBoost);
