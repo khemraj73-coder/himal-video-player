@@ -20,7 +20,7 @@ jobs:
           channel: 'stable'
           cache: true
       - name: Generate platform scaffolding
-        run: flutter create --project-name himal_video_player --platforms=android,ios,linux,macos,windows .
+        run: flutter create --overwrite --project-name himal_video_player --platforms=android,ios,linux,macos,windows .
       - name: Install dependencies
         run: flutter pub get
       - name: Apply dart fixes
