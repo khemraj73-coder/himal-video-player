@@ -1,7 +1,7 @@
 name: himal_video_player
 description: HIMAL - The ultimate free & open-source cross-platform video player. Plays every format, codec, HDR (HDR/HDR+/HDR10/HDR10+/Dolby Vision), and audio format on Windows, Linux, macOS, iOS and Android.
 publish_to: "none"
-version: 1.0.0+1
+version: 1.0.1+1
 
 environment:
   sdk: ">=3.3.0 <4.0.0"
