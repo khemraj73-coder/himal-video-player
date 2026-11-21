@@ -1,0 +1,23 @@
+{
+  "name": "HIMAL Video Player",
+  "short_name": "HIMAL",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#E53935",
+  "description": "The ultimate free & open-source cross-platform video player. Made by Nepali for everyone.",
+  "orientation": "any",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/Icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
